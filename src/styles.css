@@ -1,0 +1,20 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    display: flex;
+    gap: 10px;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.content{
+    height: 200px;
+    width: auto;
+}
