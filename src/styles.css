@@ -16,8 +16,9 @@ body{
     left: 0;
     width: min(6rem,15vh);
     gap: 3vh;
-    background-color: rgba(8, 8, 8, 0.87);
+    background-color: rgba(8, 8, 8, 0.788);
     padding-top: 4vh;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 .side{
     position: relative;
@@ -34,9 +35,13 @@ body{
     font-size: 0.8rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
+    background-color: rgba(36, 36, 35, 0.808);
+    color: aliceblue;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 .side:hover{
-    background-color: rgba(127, 255, 212, 0.658);
+    background-color: rgba(127, 255, 212, 0.733);
+    color: black;
 }
 .content{
     height: 100vh;
