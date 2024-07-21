@@ -6,7 +6,25 @@
     <title>Todo List</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <dialog>
+            <form for="bookform" method = 'dialog'>
+                
+                    <label for="title">Task name :</label>
+                    <input type="text" id="title" for="task-name" required>
+                    
+                    <label for="task"></label>
+                    <textarea name="task" id="task" cols="30" rows="10"></textarea>
+                
+                    <label for="Priority">Priority :</label>
+                    <input type="checkbox" id="Priority" for="priority">
+
+                <button type="button" class="delete">Cancel</button>
+                <button type="submit" class="submit">Submit</button>
+                
+            </form>
+        </dialog>
+    </header>
     <div class="container">
         <nav class="sidebar">
             <button class="side">Personal Projects</button>
@@ -15,7 +33,9 @@
             <button class="side">Completed Projects</button>
             <button class="side">Add new projects</button>
         </nav>
-        <div class="content"></div>
+        <div class="content">
+            <button class="add-btn">Add Task</button>
+        </div>
     </div>
     <footer></footer>
 </body>

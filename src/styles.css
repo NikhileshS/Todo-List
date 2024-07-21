@@ -1,6 +1,13 @@
+:root{
+    --font : 1rem;
+    --row : minmax(100px,1rem);
+    --column : minmax(150px,0.17fr);
+}
+
 body{
     display: flex;
     flex-direction: column;
+    background-color: rgba(24, 26, 23, 0.788);
 }
 
 .container{
@@ -12,7 +19,7 @@ body{
     flex-direction: column;
     position: fixed;
     top: 0;
-    height: 1000vh;
+    height: 100vh;
     left: 0;
     width: min(6rem,15vh);
     gap: 3vh;
@@ -46,5 +53,13 @@ body{
 .content{
     height: 100vh;
     width: 85vw;
-    padding-left: 6rem;
+    padding-left: 7rem;
+    padding-top: 3rem;
+    display:grid;
+    grid-template-rows: repeat(auto-fit,var(--row));
+    grid-template-columns: repeat(auto-fit,var(--column));
+    grid-auto-rows: var(--row);
+    grid-auto-columns: var(--column);
+    overflow: auto;
+    gap: 2rem;
 }
