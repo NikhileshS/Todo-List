@@ -27,7 +27,7 @@ body{
     padding-top: 4vh;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
-.side{
+.add-proj{
     position: relative;
     display: flex;
     align-items: center;
@@ -46,7 +46,7 @@ body{
     color: aliceblue;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
-.side:hover{
+.add-proj:hover{
     background-color: rgba(127, 255, 212, 0.733);
     color: black;
 }
@@ -62,4 +62,30 @@ body{
     grid-auto-columns: var(--column);
     overflow: auto;
     gap: 2rem;
+}
+
+.new-project{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    background-color: rgba(36, 36, 35, 0.808);
+    color: aliceblue;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.new-project:hover{
+    background-color: rgba(127, 255, 212, 0.733);
+    color: black;
 }

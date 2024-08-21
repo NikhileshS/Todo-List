@@ -7,13 +7,13 @@
 </head>
 <body>
     <header>
-        <dialog>
-            <form for="bookform" method = 'dialog'>
+        <dialog class="task-dialog">
+            <form for="bookform" method = 'dialog' class="taskform">
                 
                     <label for="title">Task name :</label>
                     <input type="text" id="title" for="task-name" required>
                     
-                    <label for="task"></label>
+                    <label for="task">Description :</label>
                     <textarea name="task" id="task" cols="30" rows="10"></textarea>
                 
                     <label for="Priority">Priority :</label>
@@ -21,17 +21,20 @@
 
                 <button type="button" class="delete">Cancel</button>
                 <button type="submit" class="submit">Submit</button>
-                
+            </form>
+        </dialog>
+        <dialog class="project-dialog">
+            <form for="projectform" method="dialog" class="projectform">
+                <label for="project-title">Project Title :</label>
+                <input type="text" id="project-title" for="project-name">
+                <button type="button" class="proj-delete">Cancel</button>
+                <button type="submit" class="proj-submit">Submit</button>
             </form>
         </dialog>
     </header>
-    <div class="container">
+    <div class="container" id="12">
         <nav class="sidebar">
-            <button class="side">Personal Projects</button>
-            <button class="side">Fitness Projects</button>
-            <button class="side">Priority</button>
-            <button class="side">Completed Projects</button>
-            <button class="side">Add new projects</button>
+            <button class="add-proj">Add new projects</button>
         </nav>
         <div class="content">
             <button class="add-btn">Add Task</button>
