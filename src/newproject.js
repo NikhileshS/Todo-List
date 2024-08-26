@@ -1,6 +1,6 @@
 import { switching } from "./switchingmechanism";
 
-
+const taskDialog = document.querySelector('.task-dialog');
 let i = 0
 
 
@@ -13,6 +13,9 @@ const createbtn = function () {
     btn.innerHTML = title;
     btn.addEventListener('click',()=>{
         switching(btn)
+        const taskbtn = document.querySelector('.add-btn').addEventListener('click',()=>{
+            taskDialog.showModal();
+        });
     })
     sidebar.appendChild(btn);
     i++
