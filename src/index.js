@@ -1,16 +1,19 @@
 import './styles.css';
 import {createbtn} from './newproject'
 import { createcontainer } from "./switchingmechanism";
+import { addtaskfun } from './addtask';
 
 const taskDialog = document.querySelector('.task-dialog');
 const projectDialog = document.querySelector('.project-dialog');
 const exit = document.querySelector('.delete');
-
+const submit = document.querySelector('.submit');
 
 // DOM elements of the Task Button 
-const taskbtn = document.querySelector('.add-btn').addEventListener('click',()=>{
-    taskDialog.showModal();
-});
+submit.addEventListener('click',()=>{
+    addtaskfun();
+    taskDialog.close();
+    const form = document.querySelector('.taskform').reset();
+})
 
 exit.addEventListener('click',() =>{
     taskDialog.close();
