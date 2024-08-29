@@ -9,18 +9,22 @@
     <header>
         <dialog class="task-dialog">
             <form for="bookform" method = 'dialog' class="taskform">
-                
+                <div>
                     <label for="title">Task name :</label>
-                    <input type="text" id="title" for="task-name" required>
-                    
+                    <input type="text" id="title" for="task-name">
+                </div>
+                <div>  
                     <label for="task">Description :</label>
-                    <textarea name="task" id="task" cols="30" rows="10"></textarea>
-                
+                    <textarea name="task" id="task"></textarea>
+                </div>
+                <div class="prior">
                     <label for="Priority">Priority :</label>
                     <input type="checkbox" id="Priority" for="priority">
-
+                </div>
+                <div class="taskbuttons">
                 <button type="button" class="delete">Cancel</button>
                 <button type="submit" class="submit">Submit</button>
+                </div>
             </form>
         </dialog>
         <dialog class="project-dialog">
@@ -37,7 +41,7 @@
             <button class="add-proj">Add new projects</button>
         </nav>
         <div class="content">
-            <button class="add-btn">Add Task</button>
+            
         </div>
     </div>
     <footer></footer>

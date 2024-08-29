@@ -1,6 +1,6 @@
 :root{
     --font : 1rem;
-    --row : minmax(100px,1rem);
+    --row : minmax(200px,0.35fr);
     --column : minmax(150px,0.17fr);
 }
 
@@ -88,4 +88,45 @@ body{
 .new-project:hover{
     background-color: rgba(127, 255, 212, 0.733);
     color: black;
+}
+
+.taskform{
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+
+}
+
+.prior{
+    padding-left: 5.7rem;
+}
+
+#task{
+    resize: vertical;
+}
+
+.taskbuttons{
+    display: flex;
+    gap: 140px;
+}
+
+.taskcont{
+    background-color: rgba(36, 36, 35, 0.568);
+    color: aliceblue; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px;
+}
+.taskdesc{
+    height: 0.2fr;
+    overflow-y: auto;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.tasktitle{
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
 }
