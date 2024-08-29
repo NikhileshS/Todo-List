@@ -29,7 +29,6 @@ const projectbtn = document.querySelector('.add-proj').addEventListener('click',
 const projectsubmitbtn = document.querySelector('.proj-submit').addEventListener('click',()=>{
     createbtn();
     createcontainer();
-    const taskbtn = document.querySelector('.add-btn')
     projectDialog.close();
     const form = document.querySelector('.projectform').reset()
 
