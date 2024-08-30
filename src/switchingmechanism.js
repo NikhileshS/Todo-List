@@ -12,13 +12,28 @@ const switching = function (e){
             container.innerHTML = swap.arr[temp];
         }
         else{
-            if(e.id === temp){
-                container.innerHTML = swap.arr[temp];
+            if(e.id !== temp){
+                if(container.innerHTML === ""){
+                    temp = e.id;
+                    container.innerHTML = swap.arr[temp]
+                }
+                else{
+                    swap.arr[temp] = container.innerHTML
+                    temp = e.id
+                    container.innerHTML = swap.arr[temp];
+                }
             }
             else{
-            swap.arr[temp] = container.innerHTML
-            temp = e.id
-            container.innerHTML = swap.arr[temp];
+            for(let x = 0;x<6;x++){
+                if(swap.arr[x] === ''){
+                    if(e.id === temp){
+                        container.innerHTML = swap.arr[temp];
+                    }
+                    else{
+                    container.innerHTML = swap.arr[x];
+                    }
+                }
+            }
             }
         }
     }
