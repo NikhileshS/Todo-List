@@ -1,3 +1,4 @@
+import { editfunc } from "./edittask";
 
 const addtaskfun = function (){
     const title = document.getElementById('title').value;
@@ -22,7 +23,9 @@ const container = function (title,task,prior){
     const complete = document.createElement('btn');
     const btncon = document.createElement('div');
     const editbtn = document.createElement('btn');
+    const editprior = document.getElementById('edit-Priority');
 
+    editprior.checked = prior;
 
     cont.classList.add("taskcont");
     tasktitle.classList.add('tasktitle');
@@ -31,7 +34,7 @@ const container = function (title,task,prior){
     editbtn.classList.add('editbtn')
     btncon.classList.add('btncon');
 
-    tasktitle.textContent = `Task : ${title}`;
+    tasktitle.textContent = `${title}`;
     taskdesc.textContent = 'Description';
     removebtn.innerHTML = 'Remove'
     removebtn.classList.add('removebtn')
@@ -43,6 +46,23 @@ const container = function (title,task,prior){
         cont.style.borderColor = 'red';
     }
 
+    editbtn.addEventListener('click',()=>{
+        editfunc(tasktitle.textContent,task,editprior.checked); 
+
+        const editsubmit = document.querySelector('.edit-submit');
+        editsubmit.addEventListener('click',()=>{
+            tasktitle.textContent = document.getElementById('edit-title').value;
+            if(editprior.checked){
+                cont.style.border = 'solid';
+                cont.style.borderColor = 'red';
+            }
+            else{
+                cont.style.border = 'solid';
+                cont.style.borderColor = 'rgba(8, 8, 8, 0.548)';
+            }
+        })
+    })
+
     complete.addEventListener('click',()=>{
         cont.style.border = 'solid';
         cont.style.borderColor = 'green';
@@ -51,6 +71,7 @@ const container = function (title,task,prior){
     removebtn.addEventListener('click',()=>{
         content.removeChild(cont);
     })
+
 
     cont.appendChild(tasktitle);
     btncon.appendChild(taskdesc);

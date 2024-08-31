@@ -119,6 +119,8 @@ body{
     gap: 10px;
     border-radius: 20px;
     align-items: center;
+    border: solid;
+    border-color: rgba(8, 8, 8, 0.548);
 }
 .taskdesc{
     width: 80px;
@@ -152,8 +154,9 @@ body{
 
 .tasktitle{
     width: 120px;
-    height: 60px;
+    height: 70px;
     padding-top: 1.5rem;
+    padding-bottom: minmax(0px,1.5rem);
     font-size: 1.5rem;
     overflow-x: auto;
 }

@@ -27,6 +27,26 @@
                 </div>
             </form>
         </dialog>
+        <dialog class="edit-dialog">
+            <form for="bookform" method = 'dialog' class="taskform">
+                <div>
+                    <label for="edit-title">Task name :</label>
+                    <input type="text" id="edit-title" for="task-name">
+                </div>
+                <div>  
+                    <label for="edit-task">Description :</label>
+                    <textarea name="task" id="edit-task"></textarea>
+                </div>
+                <div class="prior">
+                    <label for="edit-Priority">Priority :</label>
+                    <input type="checkbox" id="edit-Priority" for="priority">
+                </div>
+                <div class="taskbuttons">
+                <button type="button" class="edit-delete">Cancel</button>
+                <button type="submit" class="edit-submit">Submit</button>
+                </div>
+            </form>
+        </dialog>
         <dialog class="project-dialog">
             <form for="projectform" method="dialog" class="projectform">
                 <label for="project-title">Project Title :</label>
