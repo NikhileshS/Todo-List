@@ -38,6 +38,4 @@ const projectcancel = document.querySelector('.proj-delete').addEventListener('c
     projectDialog.close();
     const form = document.querySelector('.projectform').reset()
 })
-
-
 // 
