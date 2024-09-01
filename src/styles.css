@@ -85,7 +85,18 @@ body{
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-.new-project:hover{
+.remove-proj, .add-btn{
+    background-color: rgba(36, 36, 35, 0.568);
+    color: aliceblue; 
+    text-align: center;
+    border-radius: 20px;
+    border: solid;
+    border-color: rgba(8, 8, 8, 0.548);
+    user-select: none;
+    font-size: 2rem;
+}
+
+.new-project:hover, .remove-proj:hover, .add-btn:hover{
     background-color: rgba(127, 255, 212, 0.733);
     color: black;
 }
@@ -236,4 +247,8 @@ body{
 .close:hover{
     background-color: rgba(127, 255, 212, 0.733);
     color: black;
+}
+
+.taskdescription, .taskpriority{
+    display: none;
 }

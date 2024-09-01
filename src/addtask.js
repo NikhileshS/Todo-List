@@ -17,21 +17,25 @@ const addtaskfun = function (){
 const container = function (title,task,prior){
 
     const cont = document.createElement('div');
-    const tasktitle = document.createElement('btn');
+    const tasktitle = document.createElement('div');
     const taskdesc = document.createElement('div');
     const removebtn = document.createElement('btn');
     const content = document.querySelector('.content');
     const complete = document.createElement('btn');
     const btncon = document.createElement('div');
     const editbtn = document.createElement('btn');
-    const editprior = document.getElementById('edit-Priority');
     const undo = document.createElement('btn');
     const descdialog = document.querySelector('.Description')
     const desc = document.querySelector('.taskdetail')
+    const description = document.createElement('div')
+    const priority = document.createElement('div')
 
-    editprior.checked = prior;
-    desc.innerHTML = task;
+    description.textContent = task
+    priority.textContent = prior
 
+
+    description.classList.add('taskdescription')
+    priority.classList.add('taskpriority')
     cont.classList.add("taskcont");
     tasktitle.classList.add('tasktitle');
     taskdesc.classList.add('taskdesc');
@@ -54,29 +58,44 @@ const container = function (title,task,prior){
     }
 
     // Edit btn function 
-    editbtn.addEventListener('click',()=>{
-        editfunc(tasktitle.textContent,desc.innerHTML,editprior.checked); 
-        const editsubmit = document.querySelector('.edit-submit');
+    const editfn = function (){
+        const edit = document.querySelectorAll('.editbtn')
+    edit.forEach((e)=>{
+        e.addEventListener('click',()=>{
+            const cont = e.closest('.taskcont');
+            const btncon = e.closest('.btncon')
+            const priority = btncon.previousElementSibling
+            const description = priority.previousElementSibling
+            const tasktitle = description.previousElementSibling
+    
+            editfunc(tasktitle,description,priority); 
+            // Submits and responsible for making changes to the task when updated
+            const editsubmit = document.querySelector('.edit-submit');
+            editsubmit.onclick = function () {
+                tasktitle.textContent = document.getElementById('edit-title').value;
+                description.innerHTML = document.getElementById('edit-task').value;
 
-        editsubmit.addEventListener('click',()=>{
-            tasktitle.textContent = document.getElementById('edit-title').value;
-            desc.textContent = document.getElementById('edit-task').value;
-
-            if(editprior.checked){
-                cont.style.border = 'solid';
-                cont.style.borderColor = 'red';
-            }
-            else{
-                cont.style.border = 'solid';
-                cont.style.borderColor = 'rgba(8, 8, 8, 0.548)';
-            }
-        })
-
-        const editcancel = document.querySelector('.edit-delete').addEventListener('click',()=>{
-            const taskdialog = document.querySelector('.edit-dialog');
-            taskdialog.close()
+                const editprior = document.getElementById('edit-Priority');
+                if (editprior.checked) {
+                    cont.style.border = 'solid';
+                    cont.style.borderColor = 'red';
+                    priority.textContent = 'true';
+                } else {
+                    cont.style.border = 'solid';
+                    cont.style.borderColor = 'rgba(8, 8, 8, 0.548)';
+                    priority.textContent = 'false';
+                }
+            };
+    
+            const editcancel = document.querySelector('.edit-delete');
+            editcancel.onclick = function () {
+                const taskdialog = document.querySelector('.edit-dialog');
+                taskdialog.close();
+            };
         })
     })
+    }
+
     // Checks if the task is completed or not 
     complete.addEventListener('click',()=>{
         cont.style.border = 'solid';
@@ -87,7 +106,7 @@ const container = function (title,task,prior){
 
     undo.addEventListener('click',()=>{
         cont.style.border = 'solid';
-        if(editprior.checked){
+        if(priority.textContent == 'true'){
             cont.style.borderColor = 'red';
         }
         else{
@@ -99,6 +118,7 @@ const container = function (title,task,prior){
 
     // responsible for Displaying description of the task
     taskdesc.addEventListener('click',()=>{
+        desc.innerHTML = description.innerHTML
         descdialog.showModal();
     })
 
@@ -112,12 +132,15 @@ const container = function (title,task,prior){
     })
 
     cont.appendChild(tasktitle);
+    cont.appendChild(description)
+    cont.appendChild(priority)
     btncon.appendChild(taskdesc);
     btncon.appendChild(editbtn);
     btncon.appendChild(removebtn);
     btncon.appendChild(complete);
     cont.appendChild(btncon)
     content.appendChild(cont);
+    editfn()
 
 }
 

@@ -4,6 +4,9 @@ import { swap } from "./switchingmechanism";
 const taskDialog = document.querySelector('.task-dialog');
 let i = 0
 
+const proj =  {
+    arr : []
+}
 
 const createbtn = function () {
     if(i!==6){
@@ -17,7 +20,6 @@ else{
             createtask(x)
             containerfunction(x)
             console.log(swap.arr)
-            
             break
         }
     }

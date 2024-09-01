@@ -1,4 +1,4 @@
-
+import { remover,edit,complete,description } from "./edittask";
 let temp = -1;
 const swap = {
     arr: []
@@ -10,17 +10,26 @@ const switching = function (e){
         if(temp === -1){
             temp = e.id
             container.innerHTML = swap.arr[temp];
+            remover()
         }
         else{
             if(e.id !== temp){
                 if(container.innerHTML === ""){
                     temp = e.id;
                     container.innerHTML = swap.arr[temp]
+                    remover()
+                    edit()
+                    complete()
+                    description()
                 }
                 else{
                     swap.arr[temp] = container.innerHTML
                     temp = e.id
                     container.innerHTML = swap.arr[temp];
+                    remover()
+                    edit()
+                    complete()
+                    description()
                 }
             }
             else{
@@ -28,9 +37,17 @@ const switching = function (e){
                 if(swap.arr[x] === ''){
                     if(e.id === temp){
                         container.innerHTML = swap.arr[temp];
+                        remover()
+                        edit()
+                        complete()
+                        description()
                     }
                     else{
-                    container.innerHTML = swap.arr[x];
+                        container.innerHTML = swap.arr[x];
+                        remover()
+                        edit()
+                        complete()
+                        description()
                     }
                 }
             }
