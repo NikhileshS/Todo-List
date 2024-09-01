@@ -2,11 +2,11 @@ import { switching } from "./switchingmechanism";
 import { swap } from "./switchingmechanism";
 
 const taskDialog = document.querySelector('.task-dialog');
+const sidebar = document.querySelector('.sidebar')
 let i = 0
 
-const proj =  {
-    arr : []
-}
+localStorage.setItem('projstat',sidebar.innerHTML)
+
 
 const createbtn = function () {
     if(i!==6){
@@ -54,6 +54,7 @@ const containerfunction = function (i){
     })
     })
     sidebar.appendChild(btn);
+    localStorage.setItem('proj',sidebar.innerHTML)
 }
 
 
@@ -77,5 +78,20 @@ const createtask = function (x){
 
 }
 
+const projbtnfunction = function(e){
+        e.addEventListener('click',()=>{
+
+            switching(e)
+        
+            const taskbtn = document.querySelector('.add-btn').addEventListener('click',()=>{
+                taskDialog.showModal();
+            });
+        })
+    
+    
+} 
+
+
 
 export {createbtn}
+export {projbtnfunction}

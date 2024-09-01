@@ -5,6 +5,7 @@ const swap = {
 }
 
 
+
 const switching = function (e){
     const container = document.querySelector('.content');
         if(temp === -1){
