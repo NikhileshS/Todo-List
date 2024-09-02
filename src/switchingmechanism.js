@@ -59,6 +59,8 @@ const switching = function (e){
                         edit()
                         complete()
                         description()
+                        localStorage.setItem('swap',JSON.stringify(swap))
+                        localStorage.setItem('id',temp)
                     }
                     else{
                         container.innerHTML = swap.arr[x];
@@ -66,6 +68,8 @@ const switching = function (e){
                         edit()
                         complete()
                         description()
+                        localStorage.setItem('swap',JSON.stringify(swap))
+                        localStorage.setItem('id',x)
                     }
                 }
             }

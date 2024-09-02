@@ -145,8 +145,8 @@ const container = function (title,task,prior){
     editfn()
 
     let id = localStorage.getItem('id')
-    console.log(content.innerHTML)
-    swap.arr[id] = content.innerHTML;
+    let idnum = content.innerHTML
+    swap.arr[id] = idnum;
     localStorage.setItem('swap',JSON.stringify(swap))
 }
 

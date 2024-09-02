@@ -87,4 +87,26 @@ const createtask = function (x){
 
 }
 
-export {createbtn}
+const addprojfunc = function (){
+    const btn = document.querySelectorAll('.new-project')
+    btn.forEach((e)=>{
+        e.addEventListener('click',()=>{
+        switching(e)
+        const swap = JSON.parse(localStorage.getItem('swap'))
+        const taskbtn = document.querySelector('.add-btn').addEventListener('click',()=>{
+            taskDialog.showModal();
+        })
+        const removeproj = document.querySelector('.remove-proj').addEventListener('click',()=>{
+    
+        const content = document.querySelector('.content');
+        swap.arr[e.id] = '';
+        content.innerHTML = ''
+        sidebar.removeChild(e)
+        localStorage.setItem('swap',JSON.stringify(swap))
+        localStorage.setItem('proj',sidebar.innerHTML)
+        })
+        })
+    })
+}
+
+export {createbtn,addprojfunc}
