@@ -16,6 +16,8 @@ const addtaskfun = function (){
 
 const container = function (title,task,prior){
 
+    const swap = localStorage.getItem('swap')
+
     const cont = document.createElement('div');
     const tasktitle = document.createElement('div');
     const taskdesc = document.createElement('div');
@@ -142,6 +144,10 @@ const container = function (title,task,prior){
     content.appendChild(cont);
     editfn()
 
+    let id = localStorage.getItem('id')
+    console.log(content.innerHTML)
+    swap.arr[id] = content.innerHTML;
+    localStorage.setItem('swap',JSON.stringify(swap))
 }
 
 export {addtaskfun}

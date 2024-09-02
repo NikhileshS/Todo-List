@@ -1,17 +1,31 @@
 import { remover,edit,complete,description } from "./edittask";
-let temp = -1;
-const swap = {
-    arr: []
+
+if((localStorage.getItem('swap') == null)){
+    const swap = {
+        arr: []
+    }
+    localStorage.setItem('swap',JSON.stringify(swap))
+}
+
+if (localStorage.getItem('id') === null ){
+    let temp = -1;
+    localStorage.setItem('id',temp)
 }
 
 
 
 const switching = function (e){
+    let temp = localStorage.getItem('id')
+    const swap = JSON.parse(localStorage.getItem('swap'))
     const container = document.querySelector('.content');
         if(temp === -1){
             temp = e.id
             container.innerHTML = swap.arr[temp];
             remover()
+            edit()
+            complete()
+            description()
+            localStorage.setItem('id',temp)
         }
         else{
             if(e.id !== temp){
@@ -22,6 +36,7 @@ const switching = function (e){
                     edit()
                     complete()
                     description()
+                    localStorage.setItem('id',temp)
                 }
                 else{
                     swap.arr[temp] = container.innerHTML
@@ -31,6 +46,8 @@ const switching = function (e){
                     edit()
                     complete()
                     description()
+                    localStorage.setItem('swap',JSON.stringify(swap))
+                    localStorage.setItem('id',temp)
                 }
             }
             else{
@@ -58,6 +75,9 @@ const switching = function (e){
 
 
 const createcontainer = function () {
+
+    const swap = JSON.parse(localStorage.getItem('swap'))
+
     if(swap.arr.length !== 6){
         const content = document.createElement('div');
         const taskbtn = document.createElement('button');
@@ -75,8 +95,9 @@ const createcontainer = function () {
 
         swap.arr.push(content.innerHTML);
         console.log(swap.arr)
-}
+        localStorage.setItem('swap',JSON.stringify(swap))
+    }   
    }
 
 export {switching,createcontainer}
-export {swap}
+

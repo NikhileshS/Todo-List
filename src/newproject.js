@@ -1,18 +1,21 @@
 import { switching } from "./switchingmechanism";
-import { swap } from "./switchingmechanism";
 
 const taskDialog = document.querySelector('.task-dialog');
-const sidebar = document.querySelector('.sidebar')
-let i = 0
 
-localStorage.setItem('projstat',sidebar.innerHTML)
-
+if(localStorage.getItem('projstat') == null){
+    let i = 0
+    localStorage.setItem('projstat',i)
+}
 
 const createbtn = function () {
-    if(i!==6){
+    let i = localStorage.getItem('projstat')
+    const swap = JSON.parse(localStorage.getItem('swap'))
 
-    containerfunction(i)
+    if(localStorage.getItem('projstat')!= 6){
+
+    containerfunction(localStorage.getItem('projstat'))
     i++
+    localStorage.setItem('projstat',i)
 }
 else{
     for(let x = 0;x<6;x++){
@@ -27,6 +30,8 @@ else{
 }
 
 const containerfunction = function (i){
+
+    const swap = JSON.parse(localStorage.getItem('swap'))
 
     const btn = document.createElement('btn');
     const sidebar = document.querySelector('.sidebar');
@@ -45,12 +50,13 @@ const containerfunction = function (i){
         });
 
         const removeproj = document.querySelector('.remove-proj').addEventListener('click',()=>{
-
+            const swap = JSON.parse(localStorage.getItem('swap'))
             const content = document.querySelector('.content');
-            let id = btn.id;
-            swap.arr[id] = '';
+            swap.arr[btn.id] = '';
             content.innerHTML = ''
+            localStorage.setItem('swap',JSON.stringify(swap))
             sidebar.removeChild(btn)
+            localStorage.setItem('proj',sidebar.innerHTML)
     })
     })
     sidebar.appendChild(btn);
@@ -60,6 +66,8 @@ const containerfunction = function (i){
 
 const createtask = function (x){
     
+    const swap = JSON.parse(localStorage.getItem('swap'))
+
     const content = document.createElement('div');
     const taskbtn = document.createElement('button');
     const removeproj = document.createElement('button');
@@ -74,24 +82,9 @@ const createtask = function (x){
     content.appendChild(taskbtn);
 
     swap.arr[x] = content.innerHTML
+    localStorage.setItem('swap',JSON.stringify(swap))
     console.log(swap.arr)
 
 }
 
-const projbtnfunction = function(e){
-        e.addEventListener('click',()=>{
-
-            switching(e)
-        
-            const taskbtn = document.querySelector('.add-btn').addEventListener('click',()=>{
-                taskDialog.showModal();
-            });
-        })
-    
-    
-} 
-
-
-
 export {createbtn}
-export {projbtnfunction}

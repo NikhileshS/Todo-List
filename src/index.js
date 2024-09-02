@@ -1,7 +1,8 @@
 import './styles.css';
-import {createbtn,projbtnfunction} from './newproject'
+import {createbtn} from './newproject'
 import { createcontainer } from "./switchingmechanism";
 import { addtaskfun } from './addtask';
+import { switching } from './switchingmechanism';
 
 const taskDialog = document.querySelector('.task-dialog');
 const projectDialog = document.querySelector('.project-dialog');
@@ -14,6 +15,12 @@ submit.addEventListener('click',()=>{
     addtaskfun();
     taskDialog.close();
     const form = document.querySelector('.taskform').reset();
+    const swap = localStorage.getItem('swap')
+    const cont = document.querySelector('.content')
+    let id = localStorage.getItem('id')
+    console.log(cont.innerHTML)
+    swap.arr[id] = cont.innerHTML;
+    localStorage.setItem('swap',JSON.stringify(swap))
 })
 
 exit.addEventListener('click',() =>{
@@ -37,13 +44,28 @@ else{
     });
     const btn = document.querySelectorAll('.new-project')
     btn.forEach((e)=>{
-        projbtnfunction(e);
+        e.addEventListener('click',()=>{
+        switching(e)
+        const swap = JSON.parse(localStorage.getItem('swap'))
+        const taskbtn = document.querySelector('.add-btn').addEventListener('click',()=>{
+            taskDialog.showModal();
+        })
+        const removeproj = document.querySelector('.remove-proj').addEventListener('click',()=>{
+    
+        const content = document.querySelector('.content');
+        swap.arr[e.id] = '';
+        content.innerHTML = ''
+        sidebar.removeChild(e)
+        localStorage.setItem('swap',JSON.stringify(swap))
+        localStorage.setItem('proj',sidebar.innerHTML)
+        })
+        })
     })
     
 }
 
 const projectsubmitbtn = document.querySelector('.proj-submit').addEventListener('click',()=>{
-
+    
         createbtn();
         createcontainer();
         projectDialog.close();
