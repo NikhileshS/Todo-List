@@ -56,11 +56,8 @@ else{
                 let temp = localStorage.getItem('id')
                 const swap = JSON.parse(localStorage.getItem('swap'))
                 if(container.innerHTML !== ''){
-                    console.log(temp)
-                    console.log(e.id)
                     swap.arr[temp] = container.innerHTML
                     localStorage.setItem('swap',JSON.stringify(swap))
-                    console.log('fhiwhf')
                 }
                 container.innerHTML = swap.arr[e.id];
                 temp = e.id

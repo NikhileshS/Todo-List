@@ -22,7 +22,6 @@ const switching = function (e){
         if(temp == -1){
             temp = e.id
             container.innerHTML = swap.arr[temp];
-            console.log('KO2')
             remover()
             edit()
             complete()
@@ -35,7 +34,6 @@ const switching = function (e){
             if(e.id != temp){
                 if(container.innerHTML == ""){
                     temp = e.id;
-                    console.log('KO')
                     container.innerHTML = swap.arr[temp]
                     remover()
                     edit()
@@ -47,7 +45,6 @@ const switching = function (e){
                 else{
                     swap.arr[temp] = container.innerHTML
                     localStorage.setItem('swap',JSON.stringify(swap))
-                    console.log('ksi')
                     temp = e.id
                     container.innerHTML = swap.arr[temp];
                     console.log(swap.arr)
@@ -65,7 +62,6 @@ const switching = function (e){
                 if(swap.arr[x] == ''){
                     if(e.id == temp){
                         container.innerHTML = swap.arr[temp];
-                        console.log('KO4')
                         remover()
                         edit()
                         complete()
@@ -73,7 +69,6 @@ const switching = function (e){
                     }
                     else{
                         container.innerHTML = swap.arr[x];
-                        console.log('KO6')
                         remover()
                         edit()
                         complete()
