@@ -14,34 +14,29 @@ if (localStorage.getItem('id') === null ){
 
 
 
+
 const switching = function (e){
     let temp = localStorage.getItem('id')
     const swap = JSON.parse(localStorage.getItem('swap'))
     const container = document.querySelector('.content');
-        if(temp === -1){
+        if(temp == -1){
             temp = e.id
             container.innerHTML = swap.arr[temp];
+            console.log('KO2')
             remover()
             edit()
             complete()
             description()
+            localStorage.setItem('swap',JSON.stringify(swap))
             localStorage.setItem('id',temp)
+
         }
         else{
-            if(e.id !== temp){
-                if(container.innerHTML === ""){
+            if(e.id != temp){
+                if(container.innerHTML == ""){
                     temp = e.id;
+                    console.log('KO')
                     container.innerHTML = swap.arr[temp]
-                    remover()
-                    edit()
-                    complete()
-                    description()
-                    localStorage.setItem('id',temp)
-                }
-                else{
-                    swap.arr[temp] = container.innerHTML
-                    temp = e.id
-                    container.innerHTML = swap.arr[temp];
                     remover()
                     edit()
                     complete()
@@ -49,21 +44,35 @@ const switching = function (e){
                     localStorage.setItem('swap',JSON.stringify(swap))
                     localStorage.setItem('id',temp)
                 }
+                else{
+                    swap.arr[temp] = container.innerHTML
+                    console.log('ksi')
+                    temp = e.id
+                    container.innerHTML = swap.arr[temp];
+                    console.log(swap.arr)
+                    remover()
+                    edit()
+                    complete()
+                    description()
+                    localStorage.setItem('swap',JSON.stringify(swap))
+                        localStorage.setItem('id',temp)
+                
+                }
             }
             else{
             for(let x = 0;x<6;x++){
-                if(swap.arr[x] === ''){
-                    if(e.id === temp){
+                if(swap.arr[x] == ''){
+                    if(e.id == temp){
                         container.innerHTML = swap.arr[temp];
+                        console.log('KO4')
                         remover()
                         edit()
                         complete()
                         description()
-                        localStorage.setItem('swap',JSON.stringify(swap))
-                        localStorage.setItem('id',temp)
                     }
                     else{
                         container.innerHTML = swap.arr[x];
+                        console.log('KO6')
                         remover()
                         edit()
                         complete()
