@@ -78,13 +78,17 @@ else{
                 taskDialog.showModal();
             })
             const removeproj = document.querySelector('.remove-proj').addEventListener('click',()=>{
-        
+            let temp = localStorage.getItem('id')
+            const swap = JSON.parse(localStorage.getItem('swap'))
+            let projnum = localStorage.getItem('projstat')
             const content = document.querySelector('.content');
-            swap.arr[e.id] = '';
+            swap.arr[temp] = '';
             content.innerHTML = ''
             sidebar.removeChild(e)
             localStorage.setItem('swap',JSON.stringify(swap))
             localStorage.setItem('proj',sidebar.innerHTML)
+            localStorage.setItem('id',temp)
+            localStorage.setItem('projstat',projnum)
             })
         })     
     })

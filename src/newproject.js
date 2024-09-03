@@ -43,6 +43,7 @@ const containerfunction = function (i){
 
     btn.addEventListener('click',()=>{
 
+        let temp = localStorage.getItem('id')
         switching(btn)
 
         const taskbtn = document.querySelector('.add-btn').addEventListener('click',()=>{
@@ -56,6 +57,7 @@ const containerfunction = function (i){
             content.innerHTML = ''
             sidebar.removeChild(btn)
             localStorage.setItem('proj',sidebar.innerHTML)
+            localStorage.setItem('swap',JSON.stringify(swap))
     })
     })
     sidebar.appendChild(btn);
@@ -66,6 +68,7 @@ const containerfunction = function (i){
 
 const createtask = function (x){
     
+    const swap = JSON.parse(localStorage.getItem('swap'))
 
     const content = document.createElement('div');
     const taskbtn = document.createElement('button');
@@ -79,7 +82,11 @@ const createtask = function (x){
     
     content.appendChild(removeproj)
     content.appendChild(taskbtn);
+
+    swap.arr[x] = content.innerHTML
+    localStorage.setItem('swap',JSON.stringify(swap))
 }
+
 
 
 export {createbtn}
