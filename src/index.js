@@ -8,20 +8,22 @@ const taskDialog = document.querySelector('.task-dialog');
 const projectDialog = document.querySelector('.project-dialog');
 const exit = document.querySelector('.delete');
 const submit = document.querySelector('.submit');
-const cont = document.querySelector('.content')
 
 const close = document.querySelector('.close')
 close.addEventListener('click',()=>{
     const description = document.querySelector('.Description').close();
 })
 
-
-
 // DOM elements of the Task Button 
 submit.addEventListener('click',()=>{
+    let id = localStorage.getItem('id')
+    const swap = JSON.parse(localStorage.getItem('swap'))
+    const cont = document.querySelector('.content')
     addtaskfun();
     taskDialog.close();
     const form = document.querySelector('.taskform').reset();
+    swap.arr[id] = cont.innerHTML
+    localStorage.setItem('swap',JSON.stringify(swap))
 })
 
 exit.addEventListener('click',() =>{
@@ -52,13 +54,13 @@ else{
 
             if(e.id == temp){
                 let temp = localStorage.getItem('id')
+                const swap = JSON.parse(localStorage.getItem('swap'))
                 if(container.innerHTML !== ''){
                     console.log(temp)
                     console.log(e.id)
                     swap.arr[temp] = container.innerHTML
                     localStorage.setItem('swap',JSON.stringify(swap))
                     console.log('fhiwhf')
-            
                 }
                 container.innerHTML = swap.arr[e.id];
                 temp = e.id

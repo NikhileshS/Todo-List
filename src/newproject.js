@@ -79,11 +79,7 @@ const createtask = function (x){
     
     content.appendChild(removeproj)
     content.appendChild(taskbtn);
-
-
-
 }
-
 
 
 export {createbtn}

@@ -46,6 +46,7 @@ const switching = function (e){
                 }
                 else{
                     swap.arr[temp] = container.innerHTML
+                    localStorage.setItem('swap',JSON.stringify(swap))
                     console.log('ksi')
                     temp = e.id
                     container.innerHTML = swap.arr[temp];
@@ -102,7 +103,6 @@ const createcontainer = function () {
         removeproj.classList.add('remove-proj');
         removeproj.innerHTML = 'Remove Project'
 
-        
         content.appendChild(removeproj)
         content.appendChild(taskbtn);
 
